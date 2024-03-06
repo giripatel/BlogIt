@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
-import {decode, sign, verify} from 'hono/jwt'
+import {decode, sign,verify} from 'hono/jwt'
 const app = new Hono<{
   Bindings : {
     DATABASE_URL : string,
@@ -13,13 +13,18 @@ app.use('api/v1/blog/*',async (c,next) => {
 
   const header = c.req.header('authorization') || "";
 
-  const token = header.split(" ")[1]
-
-  console.log(token);
+  // const token = header.split(" ")[1]
+  const token = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.e30.4DPd06YywktH_X9ucpUtehBeKTYD-qjcG3H-cF_y8BR8vZH1YXnOtfvcKZjDwQPw";
+  console.log(header.split(" ")[0]);
   
-  const auth = await verify(token,c.env.JWT_SECRET);
-
+  console.log(token);
+  console.log(c.env.JWT_SECRET);
+  
+  const auth = await verify(token,c.env.JWT_SECRET,"HS384");
+  console.log(await verify(token,c.env.JWT_SECRET,"HS384"));
+  
   console.log(auth)
+  console.log(auth.id)
   if(auth.id){
     c.json({
       message : "working....."
@@ -51,7 +56,7 @@ const user = await prisma.user.create({
   },
 })
 
-const token = await sign({id : user.id},c.env.JWT_SECRET)
+const token = await sign({id : user.id},c.env.JWT_SECRET,"HS384")
 
   return c.json({
     jwt : token
@@ -80,7 +85,7 @@ app.post('api/v1/user/signin', async (c) => {
     })
   }
 
-  const token = await sign({id : body.id}, c.env.JWT_SECRET)
+  const token = await sign({id : body.id}, c.env.JWT_SECRET,"HS384")
   return c.json({
     token : "Bearer "+token
   })
