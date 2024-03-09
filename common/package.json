@@ -1,6 +1,6 @@
 {
-  "name": "@giridhar_patel/common",
-  "version": "1.0.0",
+  "name": "@giridhar_patel/blogit-common",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
