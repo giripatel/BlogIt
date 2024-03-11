@@ -1,9 +1,16 @@
 import React from 'react'
+import Auth from '../components/Auth'
+import Quote from '../components/Quote'
 
 const Signup = () => {
   return (
-    <div className='bg-emerald-300'>
-      Signup
+    <div className='grid lg:grid-cols-2'>
+        <div>   
+            <Auth type="signup" />
+        </div>
+        <div className='invisible lg:visible'>
+            <Quote></Quote> 
+        </div>
     </div>
   )
 }
