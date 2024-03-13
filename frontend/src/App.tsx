@@ -1,11 +1,11 @@
-import { useState } from 'react'
+
 import './App.css'
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
-import Signup from './pages/Signup'
-import Signin from './pages/Signin'
+import Signup from './pages/Signup.tsx'
+import Signin from './pages/Signin.tsx'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
