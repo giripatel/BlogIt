@@ -1,15 +1,23 @@
 import React from "react";
 import Avatar from "./Avatar";
+import NavBar from "./NavBar";
 
-const BlogContent = () => {
-  const content =
-    "India is a land of various cultures and a rich heritage. It is the seventh-largest country by area and the second-most populous country globally. The peacock is India’s national bird, and the Bengal tiger is the country’s national animal. The national song is named Vande Matram (written by Bankimchandra Chatterji). The Indian national song was first performed at the Indian National Congress in 1896. ‘Jana Gana Mana,’ India’s national anthem, is sung in 52 seconds. The national flag of India is named Tiranga, which is made up of three colours: saffron, white, and green, with the Ashoka Chakra in navy blue in the centre.";
+interface BlogInputs {
+    name : string,
+    title : string,
+    content : string
+}
 
+const BlogContent = ({
+    name,title,content
+} : BlogInputs) => {
+  
   return (
     <div>
-      <div className="p-2 max-w-3xl">
+      <div className="p-2 max-w-3xl flex gap-x-3  cursor-pointer">
+        <div className="max-w-lg">
         <div className="flex ">
-          <Avatar name="Giridhar" />
+          <Avatar  name={name} />
           <div className="flex flex-col justify-center pl-2  text-slate-400">
             &#9679;
           </div>
@@ -19,18 +27,20 @@ const BlogContent = () => {
         </div>
         <div className="mt-2">
           <div className="font-extrabold text-2xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quam
-            numquam iste accusantiumx
+            {title}
           </div>
           <div>{content.substring(0, 200) + "..."}</div>
           <div>
-            {content.length > 100
-              ? Math.floor(content.length / 300) + " minutes read"
+            {content.length > 100? Math.floor(content.length / 100) + " minutes read"
               : "1 minute read"}
           </div>
         </div>
+        </div>
+        <div className=" bg-teal-300 w-52 shadow-md rounded-sm mt-4 h-40 hover:scale-105 duration-200 ease-in">
+            <img className="h-40 w-52" src="https://media.istockphoto.com/id/1424994299/photo/magnifying-glass-calculator-and-charts-on-paper.webp?b=1&s=170667a&w=0&k=20&c=I0wK0Hp8PuqEIy_shxrJZrFLegc16HJC8-EK0DHyloM=" alt="" />
+        </div>
       </div>
-    </div>
+    </div>  
   );
 };
 

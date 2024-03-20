@@ -10,13 +10,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.29.0",
+    "@editorjs/header": "^2.8.1",
+    "@editorjs/paragraph": "^2.11.3",
     "@giridhar_patel/blogit-common": "^1.0.1",
+    "@tinymce/tinymce-react": "^4.3.2",
     "axios": "^1.6.7",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.0.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-editor-js": "^2.1.0",
+    "react-router-dom": "^6.22.3",
+    "slate": "^0.102.0",
+    "slate-react": "^0.102.0",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
+    "@editorjs/image": "^2.9.0",
+    "@types/editorjs__header": "^2.6.3",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.0.2",

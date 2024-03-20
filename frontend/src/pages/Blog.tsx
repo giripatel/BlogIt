@@ -1,7 +1,6 @@
-import React from 'react'
+
 import Avatar from '../components/Avatar'
 import NavBar from '../components/NavBar'
-
 
 interface BlogInputs{
     title? : string,
