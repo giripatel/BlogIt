@@ -1,15 +1,14 @@
-import React from "react";
 import Avatar from "./Avatar";
-import NavBar from "./NavBar";
 
 interface BlogInputs {
     name : string,
     title : string,
-    content : string
+    content : string,
+    date : string
 }
 
 const BlogContent = ({
-    name,title,content
+    name,title,content,date
 } : BlogInputs) => {
   
   return (
@@ -22,7 +21,7 @@ const BlogContent = ({
             &#9679;
           </div>
           <div className="flex flex-col justify-center pl-2 font-thin text-lg">
-            23-Dec-2023
+            {date}
           </div>
         </div>
         <div className="mt-2">

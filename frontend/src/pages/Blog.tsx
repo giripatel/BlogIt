@@ -16,7 +16,7 @@ const Blog = ({
 } : BlogInputs) => {
   return (
     <div>
-        <NavBar name='Krish'></NavBar>
+        <NavBar name={authorName}></NavBar>
         <div className='lg:max-w-7xl flex relative lg:left-[15%] pt-20'>
         <div className='grid grid-cols-12'>
             <div className='col-span-8 px-7 gap-y-3 flex flex-col  justify-end'>
@@ -25,10 +25,10 @@ const Blog = ({
                 <div className='text-lg'>{content}</div>
             </div>
             <div className='col-span-4'>
-                <h5 className='pl-5 text-lg'>Author</h5>
+                <h5 className='pl-5 text-lg'>{authorName}</h5>
                 <div className='flex gap-2 pt-3'>
                     <div className='pl-2 pt-5'>
-                        <Avatar name='Krish'></Avatar>
+                        <Avatar name={authorName}></Avatar>
                     </div>
 
                     <div className=''>

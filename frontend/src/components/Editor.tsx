@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import EditorJS from "@editorjs/editorjs";
+import { useRecoilValue, useRecoilValueLoadable } from "recoil";
+import { blogsAtom } from "../atom/atom";
 
 export default function Editor() {
   const [isMounted, setMounted] = useState(false);
   const ref = useRef<EditorJS>()
+
+  const blogs = useRecoilValueLoadable(blogsAtom);
+  console.log(blogs)
 
   const initalizeEditor = async () => {
     const EditorJS = (await import("@editorjs/editorjs")).default;
